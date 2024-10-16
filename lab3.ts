@@ -56,6 +56,24 @@ const sealed = (constructor: Function) => {
     Object.seal(constructor.prototype);
 };
 
+// Декоратор метода, который преобразует возвращаемую строку в верхний регистр
+function toUpperCase(
+    target: any,
+    propertyKey: string,
+    descriptor: PropertyDescriptor
+): void {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: any[]) {
+        const result = originalMethod.apply(this, args);
+        // Проверяем, является ли результат строкой, и преобразуем в верхний регистр
+        if (typeof result === 'string') {
+            return result.toUpperCase();
+        }
+        return result;
+    };
+}
+
 // Перечисление для типа кузова автомобиля
 enum BodyType {
     Sedan = "Sedan",
@@ -200,16 +218,18 @@ class CarManual implements Car {
     set carClass(value: CarClass) {
         this._carClass = value;
     }
-
-    displayVehicleInfo(): void {
-        console.log(`Car Information:
+    @toUpperCase
+    displayVehicleInfo(): string {
+        const info = `Car Information:
             Brand: ${this._brand}
             Model: ${this._model}
             Year: ${this._year}
             VIN: ${this._vin}
             Registration Number: ${this._registrationNumber}
             Body Type: ${this._bodyType}
-            Car Class: ${this._carClass}`);
+            Car Class: ${this._carClass}`;
+        console.log(info);
+        return info;
     }
 }
 
@@ -240,3 +260,7 @@ const myCar = new CarManual(
 (CarManual.prototype as any).newProperty = 'Это новое свойство';
 
 console.log('Новое свойство: ', (CarManual.prototype as any).newProperty);
+
+// Вызов метода с декоратором
+const carInfo = myCar.displayVehicleInfo();
+console.log('Преобразованная информация об автомобиле: ', carInfo);

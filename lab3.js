@@ -1,40 +1,11 @@
-var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-    var _, done = false;
-    for (var i = decorators.length - 1; i >= 0; i--) {
-        var context = {};
-        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
-        if (kind === "accessor") {
-            if (result === void 0) continue;
-            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-            if (_ = accept(result.get)) descriptor.get = _;
-            if (_ = accept(result.set)) descriptor.set = _;
-            if (_ = accept(result.init)) initializers.unshift(_);
-        }
-        else if (_ = accept(result)) {
-            if (kind === "field") initializers.unshift(_);
-            else descriptor[key] = _;
-        }
-    }
-    if (target) Object.defineProperty(target, contextIn.name, descriptor);
-    done = true;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
-    var useValue = arguments.length > 2;
-    for (var i = 0; i < initializers.length; i++) {
-        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
-    }
-    return useValue ? value : void 0;
-};
-var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
-    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
@@ -91,6 +62,22 @@ var sealed = function (constructor) {
     Object.seal(constructor);
     Object.seal(constructor.prototype);
 };
+// Декоратор метода, который преобразует возвращаемую строку в верхний регистр
+function toUpperCase(target, propertyKey, descriptor) {
+    var originalMethod = descriptor.value;
+    descriptor.value = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var result = originalMethod.apply(this, args);
+        // Проверяем, является ли результат строкой, и преобразуем в верхний регистр
+        if (typeof result === 'string') {
+            return result.toUpperCase();
+        }
+        return result;
+    };
+}
 // Перечисление для типа кузова автомобиля
 var BodyType;
 (function (BodyType) {
@@ -110,118 +97,115 @@ var CarClass;
     CarClass["Luxury"] = "Luxury";
 })(CarClass || (CarClass = {}));
 // Класс, реализующий интерфейс Car и использующий декоратор
-var CarManual = function () {
-    var _classDecorators = [sealed];
-    var _classDescriptor;
-    var _classExtraInitializers = [];
-    var _classThis;
-    var CarManual = _classThis = /** @class */ (function () {
-        function CarManual_1(brand, model, year, vin, registrationNumber, owner, bodyType, carClass) {
-            this._brand = brand;
-            this._model = model;
-            this._year = year;
-            this._vin = vin;
-            this._registrationNumber = registrationNumber;
-            this._owner = owner;
-            this._bodyType = bodyType;
-            this._carClass = carClass;
-        }
-        Object.defineProperty(CarManual_1.prototype, "brand", {
-            // Геттеры и сеттеры
-            get: function () {
-                return this._brand;
-            },
-            set: function (value) {
-                this._brand = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "model", {
-            get: function () {
-                return this._model;
-            },
-            set: function (value) {
-                this._model = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "year", {
-            get: function () {
-                return this._year;
-            },
-            set: function (value) {
-                this._year = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "vin", {
-            get: function () {
-                return this._vin;
-            },
-            set: function (value) {
-                this._vin = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "registrationNumber", {
-            get: function () {
-                return this._registrationNumber;
-            },
-            set: function (value) {
-                this._registrationNumber = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "owner", {
-            get: function () {
-                return this._owner;
-            },
-            set: function (value) {
-                this._owner = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "bodyType", {
-            get: function () {
-                return this._bodyType;
-            },
-            set: function (value) {
-                this._bodyType = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(CarManual_1.prototype, "carClass", {
-            get: function () {
-                return this._carClass;
-            },
-            set: function (value) {
-                this._carClass = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        CarManual_1.prototype.displayVehicleInfo = function () {
-            console.log("Car Information:\n            Brand: ".concat(this._brand, "\n            Model: ").concat(this._model, "\n            Year: ").concat(this._year, "\n            VIN: ").concat(this._vin, "\n            Registration Number: ").concat(this._registrationNumber, "\n            Body Type: ").concat(this._bodyType, "\n            Car Class: ").concat(this._carClass));
-        };
-        return CarManual_1;
-    }());
-    __setFunctionName(_classThis, "CarManual");
-    (function () {
-        var _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
-        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
-        CarManual = _classThis = _classDescriptor.value;
-        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
-        __runInitializers(_classThis, _classExtraInitializers);
-    })();
-    return CarManual = _classThis;
-}();
+var CarManual = /** @class */ (function () {
+    function CarManual(brand, model, year, vin, registrationNumber, owner, bodyType, carClass) {
+        this._brand = brand;
+        this._model = model;
+        this._year = year;
+        this._vin = vin;
+        this._registrationNumber = registrationNumber;
+        this._owner = owner;
+        this._bodyType = bodyType;
+        this._carClass = carClass;
+    }
+    Object.defineProperty(CarManual.prototype, "brand", {
+        // Геттеры и сеттеры
+        get: function () {
+            return this._brand;
+        },
+        set: function (value) {
+            this._brand = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "model", {
+        get: function () {
+            return this._model;
+        },
+        set: function (value) {
+            this._model = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "year", {
+        get: function () {
+            return this._year;
+        },
+        set: function (value) {
+            this._year = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "vin", {
+        get: function () {
+            return this._vin;
+        },
+        set: function (value) {
+            this._vin = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "registrationNumber", {
+        get: function () {
+            return this._registrationNumber;
+        },
+        set: function (value) {
+            this._registrationNumber = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "owner", {
+        get: function () {
+            return this._owner;
+        },
+        set: function (value) {
+            this._owner = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "bodyType", {
+        get: function () {
+            return this._bodyType;
+        },
+        set: function (value) {
+            this._bodyType = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CarManual.prototype, "carClass", {
+        get: function () {
+            return this._carClass;
+        },
+        set: function (value) {
+            this._carClass = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CarManual.prototype.displayVehicleInfo = function () {
+        var info = "Car Information:\n            Brand: ".concat(this._brand, "\n            Model: ").concat(this._model, "\n            Year: ").concat(this._year, "\n            VIN: ").concat(this._vin, "\n            Registration Number: ").concat(this._registrationNumber, "\n            Body Type: ").concat(this._bodyType, "\n            Car Class: ").concat(this._carClass);
+        console.log(info);
+        return info;
+    };
+    __decorate([
+        toUpperCase,
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", String)
+    ], CarManual.prototype, "displayVehicleInfo", null);
+    CarManual = __decorate([
+        sealed,
+        __metadata("design:paramtypes", [String, String, Number, String, String, Object, String, String])
+    ], CarManual);
+    return CarManual;
+}());
 // Проверка работы декоратора
 var myCar = new CarManual('Toyota', 'Corolla', 2020, '1234VIN5678', 'ABC123', {
     lastName: 'Doe',
@@ -238,3 +222,6 @@ var myCar = new CarManual('Toyota', 'Corolla', 2020, '1234VIN5678', 'ABC123', {
 // Попытка добавить новое свойство к прототипу класса
 CarManual.prototype.newProperty = 'Это новое свойство';
 console.log('Новое свойство: ', CarManual.prototype.newProperty);
+// Вызов метода с декоратором
+var carInfo = myCar.displayVehicleInfo();
+console.log('Преобразованная информация об автомобиле: ', carInfo);
