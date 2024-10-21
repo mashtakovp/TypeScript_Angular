@@ -62,7 +62,7 @@ function toUpperCase(
     propertyKey: string,
     descriptor: PropertyDescriptor
 ): void {
-    const originalMethod = descriptor.value;
+    const originalMethod = descriptor.value; //сохраняем ссылку на оригинальный метод
 
     descriptor.value = function (...args: any[]) {
         const result = originalMethod.apply(this, args);
