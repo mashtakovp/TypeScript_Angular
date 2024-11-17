@@ -1,0 +1,7 @@
+<div *ngIf="message; else groupInfo">
+  <h2>{{ message }}</h2>
+</div>
+
+<ng-template #groupInfo>
+  <h2>Группа №{{ groupId }}</h2>
+</ng-template>
