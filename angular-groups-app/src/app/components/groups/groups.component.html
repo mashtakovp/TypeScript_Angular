@@ -18,7 +18,9 @@
     <ul class="students-list">
       <li class="student-item" *ngFor="let student of selectedStudents">
         <div class="student-card">
-          <p class="student-name"><strong>{{ student.surname }} {{ student.name }}</strong></p>
+          <p class="student-name" [appItalicForMinor]="student.birthYear">
+            <strong>{{ student.surname }} {{ student.name }}</strong>
+          </p>
           <p class="student-details">Год рождения: {{ student.birthYear }}</p>
           <p class="student-details">Курс: {{ student.course }}</p>
           <p class="student-details">Год поступления: {{ student.admissionYear }}</p>
