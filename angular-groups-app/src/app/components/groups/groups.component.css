@@ -1,0 +1,107 @@
+/* Общий контейнер */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Dropdown */
+.dropdown {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dropdown-label {
+  font-size: 1rem;
+  margin-right: 10px;
+  color: #555;
+  font-weight: bold;
+}
+
+.dropdown-select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.dropdown-select:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Секция студентов */
+.students-section {
+  margin-top: 20px;
+}
+
+.students-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.students-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.student-item {
+  width: 250px;
+}
+
+.student-card {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.student-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.student-details {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Сообщение о пустой группе */
+.no-students {
+  margin-top: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+}
