@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { provideHttpClient} from '@angular/common/http';
 import { ItalicForMinorDirective } from './directives/italic-for-minor.directive';
+import { CenturyPipe } from './pipes/century.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GroupsComponent,
-    ItalicForMinorDirective
+    ItalicForMinorDirective,
+    CenturyPipe
   ],
   imports: [
     BrowserModule,
