@@ -25,6 +25,7 @@ export class AddStudentComponent {
       birthYear: [null, [Validators.required, Validators.min(1900)]],
       admissionYear: [null, [Validators.required, Validators.min(2000)]],
       groupId: [null, Validators.required],
+      course: [null, Validators.required]
     });
   }
   ngOnInit(): void {
@@ -42,8 +43,8 @@ export class AddStudentComponent {
       ...this.studentForm.value,
       groupId: Number(this.studentForm.value.groupId), // Преобразование groupId в число
       course: Number(this.studentForm.value.course), // Преобразование course в число
-      admissionYear: Number(this.studentForm.value.admissionYear), // Преобразование admissionYear в число
-      id: this.generateUniqueId()  // Генерация уникального id
+      admissionYear: String(this.studentForm.value.admissionYear), // Преобразование admissionYear в число
+      id: String(this.generateUniqueId())  // Генерация уникального id
     };
 
     this.studentsService.addStudent(newStudent).subscribe(() => {

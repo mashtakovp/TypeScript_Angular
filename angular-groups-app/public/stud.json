@@ -65,38 +65,13 @@
       "admissionYear": "2023"
     },
     {
-      "id": "568a",
-      "surname": "Mashtakov",
-      "name": "pavel",
-      "birthYear": 2011,
-      "admissionYear": 2023,
-      "groupId": "1"
-    },
-    {
-      "id": "5c89",
+      "id": "3206",
       "surname": "Маштаков",
       "name": "Павел",
-      "birthYear": 2014,
-      "admissionYear": 2021,
-      "groupId": "2"
-    },
-    {
-      "id": 1519,
-      "surname": "Маштаков",
-      "name": "Павел",
-      "birthYear": 2011,
-      "admissionYear": 2021,
+      "birthYear": 2002,
+      "admissionYear": "2024",
       "groupId": 1,
-      "course": null
-    },
-    {
-      "id": 376,
-      "surname": "sadasd",
-      "name": "sdssa",
-      "birthYear": 1999,
-      "admissionYear": 2021,
-      "groupId": 2,
-      "course": null
+      "course": 1
     }
   ]
 }
