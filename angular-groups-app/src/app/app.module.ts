@@ -8,19 +8,22 @@ import { provideHttpClient} from '@angular/common/http';
 import { ItalicForMinorDirective } from './directives/italic-for-minor.directive';
 import { CenturyPipe } from './pipes/century.pipe';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
-
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     GroupsComponent,
     ItalicForMinorDirective,
     CenturyPipe,
-    EditStudentComponent
+    EditStudentComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideHttpClient(),

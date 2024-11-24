@@ -29,6 +29,9 @@ export class GroupsComponent implements OnInit {
   onEditStudent(studentId: number): void {
     this.router.navigate(['/edit-student', studentId]);
 }
+  onAddStudent(): void {
+    this.router.navigate(['/add-student']);
+}
   onGroupSelect(event: Event): void {
     console.log('onGroupSelect вызван'); // Отладка
     const groupId = Number((event.target as HTMLSelectElement).value);

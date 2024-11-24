@@ -22,9 +22,9 @@ export class StudentsService {
         return this.http.post(this.baseUrl, student);
     }
 
-    deleteStudent(id: number): Observable<any> {
-        return this.http.delete(`${this.baseUrl}/${id}`);
-    }
+    addStudent(student: Student): Observable<Student> {
+        return this.http.post<Student>(this.baseUrl, student);
+      }
     updateStudent(student: Student): Observable<Student> {
         return this.http.put<Student>(`${this.baseUrl}/${student.id}`, student);
     }

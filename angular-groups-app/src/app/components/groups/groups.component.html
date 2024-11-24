@@ -11,7 +11,10 @@
       </option>
     </select>
   </div>
-
+  <div class="actions">
+    <button class="add-student-button" (click)="onAddStudent()">Добавить студента</button>
+  </div>
+  
   <!-- Список студентов -->
   <div *ngIf="selectedStudents.length > 0" class="students-section">
     <!--<h2 class="students-title">Студенты группы "{{ selectedGroupName }}"</h2> -->

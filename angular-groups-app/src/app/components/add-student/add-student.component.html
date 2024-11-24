@@ -1,0 +1,23 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <label for="surname">Фамилия</label>
+  <input id="surname" formControlName="surname" required />
+
+  <label for="name">Имя</label>
+  <input id="name" formControlName="name" required />
+
+  <label for="birthYear">Год рождения</label>
+  <input id="birthYear" type="number" formControlName="birthYear" required />
+
+  <label for="groupId">Группа</label>
+  <select id="groupId" formControlName="groupId" required>
+    <option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</option>
+  </select>
+
+  <label for="course">Курс</label>
+  <input id="course" type="number" formControlName="course" required />
+
+  <label for="admissionYear">Год поступления</label>
+  <input id="admissionYear" type="number" formControlName="admissionYear" required />
+
+  <button type="submit">Добавить студента</button>
+</form>
