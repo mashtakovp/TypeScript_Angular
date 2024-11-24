@@ -88,6 +88,15 @@
       "admissionYear": 2021,
       "groupId": 1,
       "course": null
+    },
+    {
+      "id": 376,
+      "surname": "sadasd",
+      "name": "sdssa",
+      "birthYear": 1999,
+      "admissionYear": 2021,
+      "groupId": 2,
+      "course": null
     }
   ]
 }
