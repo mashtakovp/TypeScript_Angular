@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { Student } from '../models/student.model';
 @Injectable({
     providedIn: 'root',
 })
@@ -24,5 +24,8 @@ export class StudentsService {
 
     deleteStudent(id: number): Observable<any> {
         return this.http.delete(`${this.baseUrl}/${id}`);
+    }
+    updateStudent(student: Student): Observable<Student> {
+        return this.http.put<Student>(`${this.baseUrl}/${student.id}`, student);
     }
 }

@@ -1,62 +1,68 @@
 {
-    "groups": [
-        { "id": 1, "name": "6131" },
-        { "id": 2, "name": "6132" }
-    ],
-    "students": [
-        {
-            "id": 1,
-            "surname": "Сидоров",
-            "name": "Сидор",
-            "birthYear": 2002,
-            "groupId": 2,
-            "course": 3,
-            "admissionYear": 2022
-        },
-        {
-            "id": 2,
-            "surname": "Васильев",
-            "name": "Василий",
-            "birthYear": 2001,
-            "groupId": 2,
-            "course": 2,
-            "admissionYear": 2023
-        },
-        {
-            "id": 3,
-            "surname": "Новиков",
-            "name": "Новик",
-            "birthYear": 2001, 
-            "groupId": 2,
-            "course": 3,
-            "admissionYear": 2021
-        },
-        {
-            "id": 4,
-            "surname": "Григорьев",
-            "name": "Григорий",
-            "birthYear": 2003,
-            "groupId": 1,
-            "course": 1,
-            "admissionYear": 2023
-        },
-        {
-            "id": 5,
-            "surname": "Максимов",
-            "name": "Максим",
-            "birthYear": 2009,
-            "groupId": 2,
-            "course": 4,
-            "admissionYear": 2022
-        },
-        {
-            "id": 6,
-            "surname": "Федоров",
-            "name": "Федор",
-            "birthYear": 2012,
-            "groupId": 1,
-            "course": 2,
-            "admissionYear": 2021
-        }
-    ]
+  "groups": [
+    {
+      "id": "1",
+      "name": "6131"
+    },
+    {
+      "id": "2",
+      "name": "6132"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "surname": "Сидоров",
+      "name": "Сидор",
+      "birthYear": 2002,
+      "groupId": 2,
+      "course": 3,
+      "admissionYear": 2022
+    },
+    {
+      "id": "2",
+      "surname": "Васильев",
+      "name": "Василий",
+      "birthYear": 2001,
+      "groupId": 2,
+      "course": 2,
+      "admissionYear": "2024"
+    },
+    {
+      "id": "3",
+      "surname": "Новиков",
+      "name": "Новик",
+      "birthYear": 2001,
+      "groupId": 2,
+      "course": 3,
+      "admissionYear": 2021
+    },
+    {
+      "id": "4",
+      "surname": "Григорьев",
+      "name": "Григорий",
+      "birthYear": 2003,
+      "groupId": 1,
+      "course": 1,
+      "admissionYear": "2021"
+    },
+    {
+      "id": "5",
+      "surname": "Максимов",
+      "name": "Максим",
+      "birthYear": 2009,
+      "groupId": 2,
+      "course": 4,
+      "admissionYear": 2022
+    },
+    {
+      "id": "6",
+      "surname": "Федоров",
+      "name": "Федор",
+      "birthYear": 2012,
+      "groupId": 1,
+      "course": 2,
+      "admissionYear": "2023"
+    }
+  ]
 }
