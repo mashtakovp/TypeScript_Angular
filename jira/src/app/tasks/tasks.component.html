@@ -1,0 +1,59 @@
+<div class="task-list-container">
+  <h1>Task List</h1>
+  
+  <!-- Фильтры -->
+  <div class="filters">
+    <label>
+      Assignee:
+      <input type="text" [(ngModel)]="filters.assignee" placeholder="Enter assignee">
+    </label>
+    <label>
+      Priority:
+      <select [(ngModel)]="filters.priority">
+        <option value="">All</option>
+        <option value="critical">Critical</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </label>
+    <label>
+      Type:
+      <select [(ngModel)]="filters.type">
+        <option value="">All</option>
+        <option value="task">Task</option>
+        <option value="bug">Bug</option>
+      </select>
+    </label>
+    <button (click)="applyFilters()">Apply Filters</button>
+  </div>
+
+  <!-- Список задач -->
+  <button class="add-task-button" routerLink="/tasks/add">Add Task</button>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Type</th>
+        <th>Priority</th>
+        <th>Title</th>
+        <th>Assignee</th>
+        <th>Last Updated</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of filteredTasks">
+        <td>{{ task.id }}</td>
+        <td>{{ task.type }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.assignee }}</td>
+        <td>{{ task.updatedAt | date:'short' }}</td>
+        <td>
+          <button routerLink="/tasks/edit/{{ task.id }}">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

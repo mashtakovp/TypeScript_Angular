@@ -1,0 +1,35 @@
+<div class="task-form-container">
+  <h1>{{ isEditMode ? 'Edit Task' : 'Add Task' }}</h1>
+  <form (ngSubmit)="saveTask()">
+    <label>
+      Type:
+      <select [(ngModel)]="task.type" name="type" required>
+        <option value="task">Task</option>
+        <option value="bug">Bug</option>
+      </select>
+    </label>
+    <label>
+      Priority:
+      <select [(ngModel)]="task.priority" name="priority" required>
+        <option value="critical">Critical</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </label>
+    <label>
+      Title:
+      <input [(ngModel)]="task.title" name="title" type="text" required />
+    </label>
+    <label>
+      Description:
+      <textarea [(ngModel)]="task.description" name="description"></textarea>
+    </label>
+    <label>
+      Assignee:
+      <input [(ngModel)]="task.assignee" name="assignee" type="text" required />
+    </label>
+    <button type="submit">{{ isEditMode ? 'Update Task' : 'Create Task' }}</button>
+    <button type="button" routerLink="/tasks">Cancel</button>
+  </form>
+</div>

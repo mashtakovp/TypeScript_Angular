@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+/* Общие стили для всего приложения */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    color: #007bff;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-bar select {
+    flex: 1;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .success-message {
+    color: green;
+    font-weight: bold;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 20px;
+    border-radius: 0 0 8px 8px;
+  }
+  
