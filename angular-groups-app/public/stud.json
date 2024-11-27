@@ -14,10 +14,10 @@
       "id": "1",
       "surname": "Сидоров",
       "name": "Сидор",
-      "birthYear": 2002,
+      "birthYear": "2015",
       "groupId": 2,
       "course": 3,
-      "admissionYear": "2024"
+      "admissionYear": "2023"
     },
     {
       "id": "2",
@@ -71,6 +71,24 @@
       "birthYear": 2002,
       "admissionYear": "2024",
       "groupId": 1,
+      "course": 1
+    },
+    {
+      "id": "1620",
+      "surname": "KKKK",
+      "name": "KKKK",
+      "birthYear": 2020,
+      "admissionYear": "2024",
+      "groupId": 2,
+      "course": 3
+    },
+    {
+      "id": "6774",
+      "surname": "Петров",
+      "name": "Петр",
+      "birthYear": 2020,
+      "admissionYear": "2024",
+      "groupId": 2,
       "course": 1
     }
   ]
